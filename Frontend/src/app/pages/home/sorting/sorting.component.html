@@ -1,0 +1,8 @@
+<div class="sort align-right">
+  <div class="sort-wrap">
+    <h4 (click)="sortMenu()"><b>Sort By:</b> {{ sortSelected }}</h4>
+    <ul *ngIf="showingMenu" class="sort-list">
+      <li *ngFor="let option of sortOptions" (click)="sortChange(option)"> {{ option }}</li>
+    </ul>
+  </div>
+</div>

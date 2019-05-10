@@ -1,0 +1,215 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size:16px;
+    margin:0;
+    overflow-x:hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+.wrapper {
+    width:100%;
+    max-width: 1210px;
+    padding:0 20px;
+    margin:0 auto;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+/* Fonts */
+
+h1, h2, h3, h4, h5, h6, p, li {
+    margin: 0 0 15px;
+}
+
+/* Form */
+
+input, 
+select {
+    width: 100%;
+    -webkit-appearance: none;
+    padding: 10px 10px 8px;
+    font-family: 'Nunito',sans-serif;
+    border: 1px solid #e1e1e1;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    margin:0;
+    margin-right: 10px;
+    vertical-align: top;
+    width:20px;
+    height:20px;
+    -webkit-appearance: none;
+    border:1px solid #e1e1e1;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+    background:#ff4899;
+}
+
+button {
+    background:#ff4270;
+    border:0;
+    padding:10px 15px;
+    color:#ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Nunito',sans-serif;
+    margin-top:30px;
+    cursor: pointer;
+}
+
+button[disabled],
+button.disabled {
+    opacity: 0.5;
+    pointer-events:none;
+}
+
+input, select {
+    margin-bottom: 25px;
+}
+
+span.help-block {
+    display: block;
+    position: absolute;
+    top: calc(100% - 20px);
+    font-size: 12px;
+    color: red;
+    font-weight: 700;
+}
+
+.input {
+    position: relative;
+}
+
+a.cta {
+    background:#ff4270;
+    border:0;
+    padding:10px 15px;
+    color:#ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Nunito',sans-serif;
+    margin-top:30px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+h2.page-title {
+    font-weight: 300;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+h2.page-title:after {
+    position: absolute;
+    content:'';
+    background:#ff4270;
+    height:3px;
+    width: 25px;
+    left:0;
+    bottom: 0;
+}
+
+/* Pagination */
+
+.listing-items .ngx-pagination .current {
+    background: #ff4270;
+}
+
+/* Slider */
+
+
+.nav-btn {
+    height: 23px;
+    position: absolute;
+    width: 14px;
+    cursor: pointer;
+    top: 0px;
+    bottom: 0;
+    margin: auto;
+    z-index: 4;
+}
+
+.nav-btn.slick-disabled {
+    opacity:0.5;
+}
+
+.nav-btn.prev-slide {
+    background-image: url(/assets/left-white.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center;
+    left:15px;
+}
+
+.nav-btn.next-slide {
+    background-image: url(/assets/right-white.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center;
+    right:15px;
+}
+
+.slick-slider .slick-dots li {
+    margin:0;
+}
+
+body .slick-dots li.slick-active button:before {
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+body .slick-dots li button:before {
+    font-size: 10px;
+    color: #ffffff;
+    opacity: 0.25;
+}
+
+body .product-details .slick-dots li button:before {
+    font-size: 10px;
+    color: #ff4270;
+    opacity: 0.5;
+}
+
+body .product-details .slick-dots li.slick-active button:before {
+    opacity: 1;
+}
+
+.product-details ul.slick-dots {
+    bottom: -80px;
+}
+
+.product-details .nav-btn {
+    background-color: rgba(255, 66, 112, 0.86);
+    padding: 20px;
+    border-radius: 100%;
+}
+
+/* Loader */
+
+.content-loading img {
+    max-width: 150px;
+    margin: 0 auto;
+    display: block;
+}

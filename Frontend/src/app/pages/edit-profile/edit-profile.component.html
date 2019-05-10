@@ -1,0 +1,69 @@
+<div id="profile">
+  <div class="wrapper">
+    <h2 class="page-title">Update Profile</h2>
+    <div class="details" *ngIf="currentUser !== null">
+      <div class="sidebar">
+        <ul>
+          <li (click)="tabChange('tab-1')" [ngClass]="{'active' : activeTab === 'tab-1'}"><i _ngcontent-c1="" class="fa fa-user"></i> Account</li>
+          <li (click)="tabChange('tab-2')" [ngClass]="{'active' : activeTab === 'tab-2'}"><i class="fa fa-money-check"></i> Payment</li>
+        </ul>
+      </div>
+      <div class="content" *ngIf="activeTab === 'tab-1'">
+        <form [formGroup]="editForm" (ngSubmit)="update()">
+          <div class="form-group">
+            <div class="input">
+              <input placeholder="Full Name" type="text" class="form-control" formControlName="name">
+              <span class="help-block" *ngIf="!registerFormControls.name.valid && registerFormControls.name.touched">Please enter Full Name.</span>
+            </div>
+          </div>  
+          <div class="form-group">
+              <div class="input">
+                <input placeholder="Password" type="password" class="form-control" formControlName = "password">
+                <span class="help-block" *ngIf="!registerFormControls.password.valid && registerFormControls.password.touched">Please enter Password.</span>
+              </div>
+          </div>     
+          <div class="form-group">
+            <div class="input">
+              <select class="form-control" name="city" placeholder="Select City" formControlName = "city">
+                  <option value="" selected disabled>Select City</option>
+                  <option *ngFor="let city of cities" value="{{ city }}">{{city}}</option>
+              </select>  
+              <span class="help-block" *ngIf="!registerFormControls.city.valid && registerFormControls.city.touched">Please select City.</span>  
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input">
+              <select class="form-control" name="state" placeholder="Select State" formControlName = "state">
+                  <option value="" selected disabled>Select State</option>
+                  <option *ngFor="let state of states" value="{{ state }}">{{state}}</option>
+              </select>  
+              <span class="help-block" *ngIf="!registerFormControls.state.valid && registerFormControls.state.touched">Please select State.</span>  
+            </div>
+          </div>      
+          <div class="form-group">
+            <div class="input">
+              <input placeholder="Phone Number" type="text" class="form-control" formControlName="phone">
+              <span class="help-block" *ngIf="(registerFormControls.phone.value === '' || registerFormControls.phone.value == undefined) && registerFormControls.phone.touched">Please enter Phone Number.</span>
+              <span class="help-block" *ngIf="(registerFormControls.phone.value !== '' && !registerFormControls.phone.valid ) && registerFormControls.phone.touched">Please enter valid Phone Number.</span>               
+            </div>
+          </div> 
+          <div class="form-group">
+            <div class="input">
+              <input placeholder="Pincode" type="text" class="form-control" formControlName="pincode">
+              <span class="help-block" *ngIf="(registerFormControls.pincode.value === '' || registerFormControls.pincode.value == undefined) && registerFormControls.pincode.touched">Please enter Pincode.</span>
+              <span class="help-block" *ngIf="(registerFormControls.pincode.value !== '' && !registerFormControls.pincode.valid ) && registerFormControls.pincode.touched">Please enter valid Pincode.</span>               
+            </div>
+          </div>        
+          <div class="form-group align-center submit">
+            <button type="submit" class="btn btn-default" [ngClass]="{'disabled' : emailAvailable === false}" [disabled]="!editForm.valid">Update</button>
+          </div>  
+        </form>
+      </div>
+      <div class="content payment align-center" *ngIf="activeTab === 'tab-2'">
+          <h3>No Payment Set.</h3>
+      </div>
+    </div>
+    <h4 class="success-message" *ngIf="formUpdateSuccess">Profile Updated Successfully.</h4>
+
+  </div>
+</div>

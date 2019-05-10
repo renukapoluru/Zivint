@@ -1,0 +1,92 @@
+<div id="address-page">
+
+  <div class="address-container">
+    <div class="wrapper">
+      <ul class="addresses-list" *ngIf="addressList">
+        <li *ngFor="let address of addressList">
+          <label>
+            <input type="radio" name="address">
+            <h4>{{ address.name }}</h4>
+            <p>{{ address.city }}</p>
+            <p>{{ address.state }}</p>
+            <p>{{ address.pincode }}</p>
+            <p>{{ address.phone }}</p>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="no-address align-center" *ngIf="addressList === []">
+    <div class="wrapper">
+      <h3>Add Address</h3>
+      <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <div class="input">
+            <input 
+              placeholder="Name" 
+              type="text" 
+              class="form-control"  
+              formControlName = "name"
+            >
+            <span class="help-block" *ngIf="!addForm.name.valid && addForm.name.touched">Please enter First Name.</span>
+          </div>
+        </div>    
+        <div class="form-group">
+          <div class="input">
+            <select class="form-control" name="city" placeholder="Select City"
+            formControlName = "city">
+                <option value="" selected disabled>Select City</option>
+                <option *ngFor="let city of cities" value="{{ city }}">{{city}}</option>
+            </select>  
+            <span class="help-block" *ngIf="!addForm.city.valid && addForm.city.touched">Please select City.</span>  
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input">
+            <select class="form-control" name="state" placeholder="Select State"
+            formControlName = "state">
+                <option value="" selected disabled>Select State</option>
+                <option *ngFor="let state of states" value="{{ state }}">{{state}}</option>
+            </select>  
+            <span class="help-block" *ngIf="!addForm.state.valid && addForm.state.touched">Please select State.</span>  
+          </div>
+        </div>      
+        <div class="form-group">
+          <div class="input">
+            <input 
+              placeholder="Phone Number" 
+              type="text" 
+              class="form-control"  
+              formControlName = "phone"
+            >
+            <span class="help-block" *ngIf="(addForm.phone.value === '' || addForm.phone.value == undefined) && addForm.phone.touched">Please enter Phone Number.</span>
+            <span class="help-block" *ngIf="(addForm.phone.value !== '' && !addForm.phone.valid ) && addForm.phone.touched">Please enter valid Phone Number.</span>               
+          </div>
+        </div> 
+        <div class="form-group">
+          <div class="input">
+            <input 
+              placeholder="Pincode" 
+              type="text" 
+              class="form-control"  
+              formControlName = "pincode"
+            >
+            <span class="help-block" *ngIf="(addForm.pincode.value === '' || addForm.pincode.value == undefined) && addForm.pincode.touched">Please enter Pincode.</span>
+            <span class="help-block" *ngIf="(addForm.pincode.value !== '' && !addForm.pincode.valid ) && addForm.pincode.touched">Please enter valid Pincode.</span>               
+          </div>
+        </div>        
+        <div class="form-group">
+          <button type="submit" class="btn btn-default" [disabled]="!addressForm.valid">Add Address</button>
+        </div>  
+      </form>
+    </div>
+  </div>
+  <app-cart></app-cart>
+  <div class="confirm-order align-center">
+    <div class="wrapper">
+      <a [routerLink]="['/pages/confirm']" class="cta" (click)="confirmOrder()">Confirm Order</a>
+    </div>
+  </div>
+
+</div>

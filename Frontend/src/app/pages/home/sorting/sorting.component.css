@@ -1,0 +1,46 @@
+.sort {
+    margin-bottom: 50px;
+}
+
+.sort h4 {
+    font-weight: 300;
+    padding: 5px 10px;
+    margin-bottom: 0;
+    border: 1px solid #b3b3b3;
+    border-radius: 3px;
+    background:#fff url('/assets/dropdown.png');
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: right center;
+    background-position-x: 96%;
+    padding-right:6%;
+}
+
+.sort-wrap {
+    max-width: 250px;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+}
+
+.sort-wrap ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #b3b3b3;
+    border-top: 0;
+    padding: 10px 10px;
+    position: absolute;
+    top: 100%;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+}
+
+.sort-list li:last-child {
+    margin-bottom: 5px;
+}

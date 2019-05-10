@@ -1,0 +1,30 @@
+<div class="product-details">
+  <div class="wrapper">
+    <div class="content-loading" *ngIf="!productFound">
+      <img src="./assets/loader-zivint.gif">
+    </div>
+    <div class="content-loaded" *ngIf="productFound">
+        <div class="product-image column">
+            <ngx-slick-carousel class="carousel" 
+              #slickModal="slick-carousel" 
+              [config]="slideConfig" 
+              (init)="slickInit($event)"
+              (breakpoint)="breakpoint($event)"
+              (afterChange)="afterChange($event)"
+              (beforeChange)="beforeChange($event)">
+            <div ngxSlickItem *ngFor="let image of productImages" class="slide">
+                <img [src]="image">
+            </div>
+            </ngx-slick-carousel>
+        </div>
+        <div class="product-content column">
+          <h2>{{ productDetails.product_name }}</h2>
+          <ul class="category">
+            <li *ngFor="let category of productDetails.product_category_tree">{{category}}</li>
+          </ul>
+          <h4>&#x20B9; {{ productDetails.retail_price }}</h4>
+          <a class="cta" (click)="addToCart(productDetails)">Add To Cart</a>
+        </div>  
+    </div>
+  </div>
+</div>

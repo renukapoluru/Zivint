@@ -1,0 +1,31 @@
+.login-register {
+    padding:100px 0;
+}
+
+.login-register form {
+    max-width: 770px;
+    margin:0 auto;
+}
+
+.login-register form button {
+    margin-top: 0px;
+}
+
+/* Login */
+
+.form-section h4 {
+    margin-top: 20px;
+}
+
+.form-section h4 a {
+    text-decoration: underline;
+    color: #ff4270;
+    text-decoration-skip-ink: none;
+}
+
+.form-section.login span.help-block.no-match {
+    position: relative;
+    top: auto;
+    left: 0;
+    text-align: left;
+}

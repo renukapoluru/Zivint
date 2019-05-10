@@ -1,0 +1,81 @@
+#profile {
+    padding:120px 0;
+}
+
+#profile .wrapper {
+    max-width: 770px;
+}
+
+#profile h2.page-title {
+    position: relative;
+    padding-right: 40px;
+}
+
+#profile h2.page-title span.edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: #ff4270;
+}
+
+#profile h2.page-title span.edit a {
+    color:inherit;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#profile .details {
+    border:1px solid #e1e1e1;
+}
+
+#profile .details .sidebar ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+#profile .sidebar li {
+    padding: 10px 10px;
+    margin: 0;
+    border-bottom: 1px solid #e1e1e1;
+    cursor: pointer;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+
+#profile .sidebar li.active {
+    background: #e63d6d;
+    color: white;
+}
+
+#profile .details .content {
+    padding: 50px 20px;
+}
+
+#profile .details i {
+    margin-right: 5px;
+}
+
+h4.success-message {
+    text-align: center;
+    padding: 10px 10px;
+    color: #ffffff;
+    background: green;
+    margin: 20px 0 0;
+}
+
+form .submit {
+    text-align: center;
+}
+
+form button {
+    margin-top:0;
+}
+
+.payment h3 {
+    margin:0;
+}

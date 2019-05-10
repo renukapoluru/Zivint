@@ -1,0 +1,46 @@
+<div class="cart-items-list">
+  <div class="wrapper">
+    <h2 class="page-title">Cart</h2>
+    <div class="content-loading" *ngIf="!loaded">
+        <img src="./assets/loader-zivint.gif">
+    </div>
+    <div *ngIf="loaded">
+      <div class="cart-item" *ngFor="let item of cartItems">
+          <div class="item-details">
+            <a class="item-link" [routerLink]="['/pages/product',item._id]"></a>
+            <h3>{{ item.product_name }}</h3>
+            <h4>{{ item.brand }}</h4>
+            <h4 id="price">&#x20B9; {{ item.retail_price }} <span class="quantity">x {{ item.quantity }}</span></h4>
+          </div>
+          <div class="remove-from-cart" (click)="removeFromCart(item.uniq_id)">
+            <a>Remove</a>
+          </div>
+      </div>
+      <div class="total-price" *ngIf="totalPrice">
+        <div class="heading column">
+          <h3>Total MRP</h3>
+        </div>
+        <div class="price column align-right">
+            <h3>&#x20B9; {{ totalPrice}}</h3>
+        </div>
+        <div class="heading column">
+          <h3>Estimated Tax</h3>
+        </div>
+        <div class="price column align-right">
+            <h3>&#x20B9; {{ formatPrice(totalPrice*5/100) }}</h3>
+        </div>
+        <div class="overall-costs">
+          <div class="heading column">
+            <h3>Total Price :</h3>
+          </div>
+          <div class="price column align-right">
+            <h3>&#x20B9; {{ formatPrice(totalPrice*105/100) }}</h3>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!cartItems" class="no-items-to-show align-center">
+        No items in Cart.
+      </div>
+    </div>
+  </div>
+</div>

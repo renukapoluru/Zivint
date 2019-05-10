@@ -1,0 +1,24 @@
+<div id="profile">
+  <div class="wrapper">
+    <h2 class="page-title">Profile <span class="edit"><a  [routerLink]="['/pages/edit-profile/']"><i class="fa fa-edit"></i></a></span></h2>
+    <div class="details" *ngIf="currentUser !== null">
+      <div class="sidebar">
+        <ul>
+          <li (click)="tabChange('tab-1')" [ngClass]="{'active' : activeTab === 'tab-1'}"><i _ngcontent-c1="" class="fa fa-user"></i> Account</li>
+          <li (click)="tabChange('tab-2')" [ngClass]="{'active' : activeTab === 'tab-2'}"><i class="fa fa-money-check"></i> Payment</li>
+        </ul>
+      </div>
+      <div class="content" *ngIf="activeTab === 'tab-1'">
+        <h3>{{ currentUser.name }}</h3>
+        <h4>{{ currentUser.email }}</h4>
+        <p><a href="tel: {{ currentUser.phone }}">{{ currentUser.phone }}</a> </p>
+        <p>{{ currentUser.city }}</p>
+        <p>{{ currentUser.state }}</p>
+        <p>{{ currentUser.pincode }}</p>
+      </div>
+      <div class="content payment align-center" *ngIf="activeTab === 'tab-2'">
+          <h3>No Payment Set.</h3>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<form class="sidebar-form" [formGroup]="filtersForm">
+    <div class="search input">
+        <input id="search" class="form-control" placeholder="Search" formControlName="searchText" type="text">
+        <ul *ngIf="searchResults != null" class="filter-select">
+            <li *ngFor="let result of searchResults" (click)="setSearch(result.Name)"> {{ result.Name }}</li>
+        </ul>
+    </div>
+    <div *ngIf="categories" class="categories input">
+        <h4>Categories</h4>
+        <div class="checkboxes-listing">
+            <div *ngFor="let category of categories; let i = index">
+                <label>
+                    <input class="form-control" name="categories" (change)="categoryChanged(category, $event.target.checked)" type="checkbox" value="{{ category }}">
+                    <span>{{ category }}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="brandNames" class="brands input">
+        <h4>Brands</h4>
+        <div class="checkboxes-listing">
+            <div *ngFor="let brand of brandNames; let i = index">
+                <div *ngIf="brand != ''">
+                    <label>
+                        <input class="form-control" name="brands" (change)="brandChanged(brand, $event.target.checked)" type="checkbox" value="{{ brand }}">
+                        <span>{{ brand }}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

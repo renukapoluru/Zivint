@@ -1,0 +1,123 @@
+<div class="login-register align-center">
+  <div class="wrapper">
+    <div *ngIf="pageURL === '/pages/login'" class="login form-section">
+      <h3>Login</h3>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <div class="input">
+            <input 
+              placeholder="Email" 
+              type="text" 
+              class="form-control"  
+              formControlName = "email"
+            >
+            <span class="help-block" *ngIf="!loginFormControls.email.valid && loginFormControls.email.touched">Please enter Email.</span>
+          </div>
+        </div>  
+        <div class="form-group">
+            <div class="input">
+              <input 
+                placeholder="Password" 
+                type="password" 
+                class="form-control"  
+                formControlName = "password"
+              >
+              <span class="help-block" *ngIf="!loginFormControls.password.valid && loginFormControls.password.touched">Please enter Password.</span>
+            </div>
+        </div>       
+        <span class="help-block no-match" *ngIf="userNotFound">Email/Password doesn't match.</span>   
+        <div class="form-group">
+          <button type="submit" class="btn btn-default" [disabled]="!loginForm.valid">LOGIN</button>
+        </div>  
+      </form>
+      <h4>Don't have an account? <a routerLink='/pages/register'>Sign Up Now</a></h4>
+    </div>
+    <div *ngIf="pageURL === '/pages/register'" class="register form-section">
+      <h3>Register</h3>
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="form-group">
+          <div class="input">
+            <input 
+              placeholder="Full Name" 
+              type="text" 
+              class="form-control"  
+              formControlName = "name"
+            >
+            <span class="help-block" *ngIf="!registerFormControls.name.valid && registerFormControls.name.touched">Please enter Full Name.</span>
+          </div>
+        </div> 
+        <div class="form-group">
+          <div class="input">
+            <input 
+              placeholder="Email" 
+              type="text" 
+              class="form-control"  
+              formControlName = "email"
+            >
+            <span class="help-block" *ngIf="!registerFormControls.email.valid && registerFormControls.email.touched">Please enter Email.</span>
+            <span class="help-block" *ngIf="registerFormControls.email.valid && emailAvailable === false">Email not available.</span>
+          </div>
+        </div>  
+        <div class="form-group">
+            <div class="input">
+              <input 
+                placeholder="Password" 
+                type="password" 
+                class="form-control"  
+                formControlName = "password"
+              >
+              <span class="help-block" *ngIf="!registerFormControls.password.valid && registerFormControls.password.touched">Please enter Password.</span>
+            </div>
+        </div>     
+        <div class="form-group">
+          <div class="input">
+            <select class="form-control" name="city" placeholder="Select City"
+            formControlName = "city">
+                <option value="" selected disabled>Select City</option>
+                <option *ngFor="let city of cities" value="{{ city }}">{{city}}</option>
+            </select>  
+            <span class="help-block" *ngIf="!registerFormControls.city.valid && registerFormControls.city.touched">Please select City.</span>  
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input">
+            <select class="form-control" name="state" placeholder="Select State"
+            formControlName = "state">
+                <option value="" selected disabled>Select State</option>
+                <option *ngFor="let state of states" value="{{ state }}">{{state}}</option>
+            </select>  
+            <span class="help-block" *ngIf="!registerFormControls.state.valid && registerFormControls.state.touched">Please select State.</span>  
+          </div>
+        </div>      
+        <div class="form-group">
+          <div class="input">
+            <input 
+              placeholder="Phone Number" 
+              type="text" 
+              class="form-control"  
+              formControlName = "phone"
+            >
+            <span class="help-block" *ngIf="(registerFormControls.phone.value === '' || registerFormControls.phone.value == undefined) && registerFormControls.phone.touched">Please enter Phone Number.</span>
+            <span class="help-block" *ngIf="(registerFormControls.phone.value !== '' && !registerFormControls.phone.valid ) && registerFormControls.phone.touched">Please enter valid Phone Number.</span>               
+          </div>
+        </div> 
+        <div class="form-group">
+          <div class="input">
+            <input 
+              placeholder="Pincode" 
+              type="text" 
+              class="form-control"  
+              formControlName = "pincode"
+            >
+            <span class="help-block" *ngIf="(registerFormControls.pincode.value === '' || registerFormControls.pincode.value == undefined) && registerFormControls.pincode.touched">Please enter Pincode.</span>
+            <span class="help-block" *ngIf="(registerFormControls.pincode.value !== '' && !registerFormControls.pincode.valid ) && registerFormControls.pincode.touched">Please enter valid Pincode.</span>               
+          </div>
+        </div>        
+        <div class="form-group">
+          <button type="submit" class="btn btn-default" [ngClass]="{'disabled' : emailAvailable === false}" [disabled]="!registerForm.valid">REGISTER</button>
+        </div>  
+      </form>
+      <h4>Already have an account? <a routerLink='/pages/login'>Sign In</a></h4>
+    </div>  
+  </div>
+</div>

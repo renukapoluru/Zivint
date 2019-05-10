@@ -1,0 +1,33 @@
+<!--<app-hero-slider></app-hero-slider>-->
+<div class="listing-items">
+    <div class="equal-height-container">
+        <div class="sidebar">
+            <app-sidebar (formChange)="formChanged($event)"></app-sidebar> 
+        </div>
+        <div class="product-container">
+            <div class="content-loading" *ngIf="!loaded">
+                <img src="./assets/loader-zivint.gif">
+            </div>
+            <div class="content-loaded" *ngIf="loaded">
+                <app-sorting (sortChanged)="sortChanged($event)"></app-sorting>
+                <div class="products-listing">
+                    <div class="product" *ngFor="let product of products | paginate: { id: 'server', itemsPerPage: 21, currentPage: currentPageNumber, totalItems: totalNoOfItems }">
+                        <div id="{{ product._id }}" class="product-image">
+                            <a  [routerLink]="['/pages/product/', product._id]"></a>
+                            <img [src]="getProductImage(product.image)">    
+                        </div>
+                        <div class="product-content">
+                            <h4>{{ product.brand }}</h4>
+                            <h3>{{ product.product_name }}</h3>
+                            <h4>&#x20B9; {{ product.retail_price }}</h4>
+                            <a class="cart" (click)="addToCart(product)">Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="totalNoOfItems >= 21" class="pagination align-center">
+                    <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>

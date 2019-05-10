@@ -1,0 +1,23 @@
+<div class="orders" >
+  <div class="wrapper">
+    <h2 class="page-title">Your Orders</h2>
+    <div class="content-loading" *ngIf="!loaded">
+        <img src="./assets/loader-zivint.gif">
+    </div>
+    <div class="orders-list" *ngIf="loaded">
+      <div class="order-item" *ngFor="let order of orders; let i = index">
+        <h6><span>Order ID: <a [routerLink]="['/pages/order',order._id]">{{ order['_id'] }}</a></span></h6>
+        <ul class="items">
+          <li class="single-item" *ngFor="let item of order.orderInfo; let j=index">
+              <h4><a [routerLink]="['/pages/product',item._id]">{{ item.product_name }}</a></h4>
+              <h4 id="price-quantity">&#x20B9; {{ item.retail_price }} <span class="quantity">x {{ item.quantity }}</span></h4>
+          </li>
+        </ul>
+        <h4 id="totalPrice">&#x20B9; {{ getTotalPrice(order.orderInfo) }}</h4>
+        <div class="repeat-order">
+            <a id="repeat" (click)="repeatOrder(order.orderInfo)"><i class="fa fa-redo-alt"></i> Repeat Order</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

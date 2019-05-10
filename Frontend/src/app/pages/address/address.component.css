@@ -1,0 +1,55 @@
+#address-page {
+    padding:100px 0;
+}
+
+#address-page .wrapper {
+    max-width: 770px;
+}
+
+/* Address Input */
+
+ul.addresses-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+ul.addresses-list li {
+    padding: 10px 10px 10px 35px;
+    position: relative;
+    box-shadow: 0 0 1px #333333;
+    border-radius: 5px;
+}
+
+ul.addresses-list li input {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    bottom:0;
+    margin:auto;
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    padding:0;
+}
+
+ul.addresses-list h4, ul.addresses-list p {
+    margin-bottom: 0px;
+}
+
+ul.addresses-list p {
+    color: #aaaaaa;
+    font-weight: 400;
+}
+
+/* No Address */
+
+.no-address input,
+.no-address select {
+    margin-bottom: 25px;
+}
+
+.no-address form {
+    max-width: 770px;
+    margin:0 auto;
+}

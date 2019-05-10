@@ -1,0 +1,47 @@
+<div class="order-details">
+  <div class="wrapper">
+
+      <h2 class="page-title">Order Summary</h2>
+      <div class="content-loading" *ngIf="!orderDetails">
+          <img src="./assets/loader-zivint.gif">
+      </div>
+      <div class="order-item" *ngIf="orderDetails">
+          <h6><span>Order ID: <a [routerLink]="['/pages/order',orderDetails._id]">{{ orderDetails['_id'] }}</a></span></h6>
+          <ul class="items">
+            <li class="single-item" *ngFor="let item of orderDetails.orderInfo; let j=index">
+                <h4><a [routerLink]="['/pages/product',item._id]">{{ item.product_name }}</a></h4>
+                <p>{{ item.description }}</p>
+                <h4 id="price-quantity">&#x20B9; {{ item.retail_price }} <span class="quantity">x {{ item.quantity }}</span></h4>
+            </li>
+          </ul>
+          <div class="total-price">
+              <div class="heading column">
+                <h3>Total MRP</h3>
+              </div>
+              <div class="price column align-right">
+                  <h3>&#x20B9; {{ mrpPrice(orderDetails.orderInfo) }}</h3>
+              </div>
+              <div class="heading column">
+                <h3>Estimated Tax</h3>
+              </div>
+              <div class="price column align-right">
+                  <h3>&#x20B9; {{ taxPrice(orderDetails.orderInfo) }}</h3>
+              </div>
+              <div class="overall-costs">
+                <div class="heading column">
+                  <h3>Total Price :</h3>
+                </div>
+                <div class="price column align-right">
+                  <h3>&#x20B9; {{ overallPrice(orderDetails.orderInfo) }}</h3>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="loaded && !orderDetails" class="no-items-to-show align-center">
+              Order Not Found.
+            </div>
+          <div class="repeat-order">
+              <a id="repeat" (click)="repeatOrder(orderDetails.orderInfo)"><i class="fa fa-redo-alt"></i> Repeat Order</a>
+          </div>
+      </div>
+  </div>
+</div>

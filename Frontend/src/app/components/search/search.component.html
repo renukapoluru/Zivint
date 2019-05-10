@@ -1,0 +1,10 @@
+<div class="search">
+    <form class="search-form" [formGroup]="searchForm">
+        <input id="search" class="form-control" placeholder="Search" formControlName="searchText" type="text">
+        <ul class="searchResults" *ngIf="showingSearchResults">
+            <li *ngFor="let result of searchResults">
+                <a (click)="gotoProduct()" [routerLink]="['/pages/product',result._id]">{{ result.product_name }}</a>
+            </li>
+        </ul> 
+    </form>
+</div>

@@ -1,0 +1,127 @@
+.header {
+    padding: 25px 0;
+    box-shadow: 0px 0px 6px 0px #e1e1e1;
+}
+
+.header .logo img {
+    height: 25px;
+    width: auto;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.header .wrapper {
+    display:flex;
+    align-items: center;
+}
+
+.header .column {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header .menu ul{
+    margin:0;
+    list-style: none;
+}
+
+.header .menu > ul{
+    padding-left:0;
+}
+
+.header .menu ul li {
+    margin-bottom: 0;
+    font-weight: 800;
+    margin-left:40px;
+    display: inline-block;
+    font-size:20px;
+}
+
+.header .menu ul li:first-child {
+    margin-left:0;
+}
+
+.header .menu i {
+    vertical-align: middle;
+    position: relative;
+    top:-2px;
+}
+
+.header a {
+    cursor: pointer;
+    text-decoration: none;
+    color:#333333;
+    
+}
+
+.header .small-column {
+    width:25%;
+}
+
+.header .logo {
+    max-width: 116px;
+    margin-right: 2%;
+}
+
+.header .menu {
+    margin-left: 2%;
+    max-width: 75px;
+}
+
+.header .search.big-column {
+    width: calc(96% - 191px);
+}
+
+/* Cart */
+
+#cart {
+    position: relative;
+}
+
+#cart .number {
+    background: #ff4270;
+    font-size: 10px;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100%;
+    position: absolute;
+    right: -5px;
+    top: 4px;
+    color: #ffffff;
+}
+
+/* Child Menu */
+
+li.menu-parent {
+    position: relative;
+}
+
+li.menu-parent .child-menu {
+    position: absolute;
+    top: 100%;
+    background: #ffffff;
+    z-index: 999;
+    left: -10px;
+    text-align: left;
+    padding:40px 10px 15px;
+    display: none;
+    width: 150px;
+}
+
+li.menu-parent:hover .child-menu {
+    display: block;
+}
+
+.header .menu ul.child-menu li {
+    margin-left: 0;
+    display: block;
+    font-weight:500;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.header .menu ul.child-menu li:last-child {
+    margin-bottom: 0;
+}
